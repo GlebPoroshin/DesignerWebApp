@@ -17,7 +17,6 @@ kotlin {
                 outputFileName = "composeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
                         add(projectDirPath)
                     }
                 }
@@ -39,12 +38,6 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.decompose)
             implementation(libs.decompose.extensions.compose)
-            implementation(libs.voyager.koin)
-            implementation(libs.voyager.tabNavigator)
-            implementation(libs.voyager.screenModel)
-            implementation(libs.voyager.navigator)
-            implementation(libs.voyager.transitions)
-            implementation(libs.voyager.bottomSheetNavigator)
         }
     }
 }
