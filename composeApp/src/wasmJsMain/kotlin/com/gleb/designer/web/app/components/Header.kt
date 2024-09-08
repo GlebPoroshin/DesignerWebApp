@@ -26,6 +26,8 @@ import org.jetbrains.compose.resources.painterResource
 fun Header(
     contentsNamesList: List<String>,
     onPageChange: (Int) -> Unit,
+    isEnglish: Boolean,
+    onLanguageChange: () -> Unit,
     isBlackTheme: Boolean,
     onThemeChange: () -> Unit,
     currentPage: Int,
@@ -58,6 +60,16 @@ fun Header(
             if (index != contentsNamesList.lastIndex) Spacer(Modifier.width(48.dp))
         }
         Spacer(Modifier.weight(1f))
+        Text(
+            text = if (isEnglish) "Eng" else "Rus",
+            style = TextStyle(
+                fontSize = 18.sp,
+                fontWeight = FontWeight(500),
+                color = themeColors.onMainColor
+            ),
+            modifier = Modifier.clickable { onLanguageChange() }
+        )
+        Spacer(Modifier.weight(0.1f))
         Image(
             painter = painterResource(if (isBlackTheme) Res.drawable.theme_button_light else Res.drawable.theme_button_night),
             contentDescription = null,

@@ -25,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gleb.designer.web.app.components.TextButton
+import com.gleb.designer.web.app.theme.Strings
 import com.gleb.designer.web.app.theme.ThemeColors
 import designerwebsite.composeapp.generated.resources.Res
 import designerwebsite.composeapp.generated.resources.emoji
@@ -33,14 +34,13 @@ import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun HomePage(
+    strings: Strings,
     isBlackTheme: Boolean,
     themeColors: ThemeColors,
     uriHandler: UriHandler
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color.Transparent)
+        modifier = Modifier.fillMaxWidth()
     ) {
         if (isBlackTheme) {
             Image(
@@ -60,7 +60,7 @@ fun HomePage(
                 modifier = Modifier.size(240.dp).clip(CircleShape)
             )
             Text(
-                text = "Lidia Suzdaltseva",
+                text = strings.name,
                 style = TextStyle(
                     fontSize = 64.sp,
                     fontWeight = FontWeight.Bold,
@@ -69,7 +69,7 @@ fun HomePage(
             )
             Spacer(Modifier.height(16.dp))
             Text(
-                text = "Graphic Designer",
+                text = strings.profession,
                 style = TextStyle(
                     fontSize = 24.sp,
                     fontWeight = FontWeight.SemiBold,
@@ -78,7 +78,7 @@ fun HomePage(
             )
             Spacer(Modifier.height(8.dp))
             Text(
-                text = "As a passionate data scientist, with expertise in machine learning, AI, and data analytics...",
+                text = strings.shortDescription,
                 style = TextStyle(
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Medium,
@@ -88,7 +88,7 @@ fun HomePage(
             Spacer(Modifier.height(40.dp))
             TextButton(
                 modifier = Modifier.width(180.dp),
-                text = "Contact Me",
+                text = strings.contactMe,
                 textColor = themeColors.onMainColor,
                 borderColor = themeColors.thirdColor,
                 shape = RoundedCornerShape(72.dp),

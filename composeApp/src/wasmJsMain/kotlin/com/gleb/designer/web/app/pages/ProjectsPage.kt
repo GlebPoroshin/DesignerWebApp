@@ -45,9 +45,7 @@ fun ProjectsPage(
 
     Column {
         Column(
-            modifier = modifier
-                .fillMaxWidth()
-                .background(Color.Transparent),
+            modifier = modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
