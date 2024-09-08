@@ -38,6 +38,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.decompose)
             implementation(libs.decompose.extensions.compose)
+            implementation("io.github.aakira:napier:2.7.1")
         }
     }
 }
