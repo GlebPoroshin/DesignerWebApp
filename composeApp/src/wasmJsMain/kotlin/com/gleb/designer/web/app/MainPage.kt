@@ -82,15 +82,7 @@ fun MainPage(
                 SpacerBetweenPages()
             }
             item {
-                SpacerBetweenPages()
-                AboutMe(
-                    modifier = Modifier.fillMaxSize(),
-                    isBlackTheme = isBlackTheme,
-                    themeColors = themeColors,
-                    uriHandler = uriHandler,
-                    clientWidth = clientWidth
-                )
-                SpacerBetweenPages()
+
             }
         }
     }

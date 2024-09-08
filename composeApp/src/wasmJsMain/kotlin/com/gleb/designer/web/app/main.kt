@@ -1,6 +1,5 @@
 package com.gleb.designer.web.app
 
-import androidx.compose.material.Scaffold
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.ComposeViewport
 import kotlinx.browser.document
