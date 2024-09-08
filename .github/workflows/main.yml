@@ -1,48 +1,48 @@
-name: Build and Deploy WASM App
+# name: Build and Deploy WASM App
 
-on:
-  push:
-    branches:
-      - main  # запуск при push в ветку main
+# on:
+#   push:
+#     branches:
+#       - main  # запуск при push в ветку main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-    # Шаг 1: Клонирование репозитория
-    - name: Checkout repository
-      uses: actions/checkout@v3
+#     steps:
+#     # Шаг 1: Клонирование репозитория
+#     - name: Checkout repository
+#       uses: actions/checkout@v3
 
-    # Шаг 2: Установка JDK 11
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '11'
+#     # Шаг 2: Установка JDK 11
+#     - name: Set up JDK 11
+#       uses: actions/setup-java@v3
+#       with:
+#         distribution: 'temurin'
+#         java-version: '11'
 
-    # Шаг 3: Очистка и сборка проекта
-    - name: Clean and Build Project
-      run: ./gradlew clean wasmJsBrowserDistribution
+#     # Шаг 3: Очистка и сборка проекта
+#     - name: Clean and Build Project
+#       run: ./gradlew clean wasmJsBrowserDistribution
 
-    # Шаг 4: Просмотр содержимого директории сборки (для отладки)
-    - name: List build directory
-      run: ls -R build
+#     # Шаг 4: Просмотр содержимого директории сборки (для отладки)
+#     - name: List build directory
+#       run: ls -R build
 
-    # Шаг 5: Копирование всех сгенерированных файлов в папку docs
-    - name: Copy all generated files to docs folder
-      run: |
-        rm -rf docs/*  # очистить текущие файлы в папке docs
-        mkdir -p docs  # создать папку docs, если ее нет
-        find build/ -type f -exec cp --parents {} docs/ \;
+#     # Шаг 5: Копирование всех сгенерированных файлов в папку docs
+#     - name: Copy all generated files to docs folder
+#       run: |
+#         rm -rf docs/*  # очистить текущие файлы в папке docs
+#         mkdir -p docs  # создать папку docs, если ее нет
+#         find build/ -type f -exec cp --parents {} docs/ \;
 
-    # Шаг 6: Коммит и пуш изменений
-    - name: Commit and push changes
-      run: |
-        git config --local user.name "GitHub Actions"
-        git config --local user.email "actions@github.com"
-        git add docs/
-        git commit -m "Deploy updated WASM build to GitHub Pages"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     # Шаг 6: Коммит и пуш изменений
+#     - name: Commit and push changes
+#       run: |
+#         git config --local user.name "GitHub Actions"
+#         git config --local user.email "actions@github.com"
+#         git add docs/
+#         git commit -m "Deploy updated WASM build to GitHub Pages"
+#         git push
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
