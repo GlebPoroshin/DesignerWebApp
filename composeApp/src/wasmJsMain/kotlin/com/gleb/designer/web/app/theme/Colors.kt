@@ -10,6 +10,7 @@ data class ThemeColors(
     val onMainColor: Color,
     val secondColor: Color,
     val thirdColor: Color,
+    val fourthColor: Color,
     val blueColor: Color,
     val blueToWhiteGradient: Brush
 )
@@ -19,6 +20,7 @@ val DarkThemeColors = ThemeColors(
     onMainColor = Color(0xFFE1E1E1),
     secondColor = White,
     thirdColor = Color(0xFFE1E1E1),
+    fourthColor = Color(0xFFA9A9A9),
     blueColor = Color(0xFF4FC3F7),
     blueToWhiteGradient = Brush.horizontalGradient(listOf(Color(0xFF4FC3F7), White))
 )
@@ -28,6 +30,7 @@ val LightThemeColors = ThemeColors(
     onMainColor = Color(0xFF050505),
     secondColor = Black,
     thirdColor = Color(0xFF484E53),
+    fourthColor = Color(0xFF484E53),
     blueColor = Color(0xFF4FC3F7),
     blueToWhiteGradient = Brush.horizontalGradient(listOf(Color(0xFF4FC3F7), Color(0xFF484E53)))
 )

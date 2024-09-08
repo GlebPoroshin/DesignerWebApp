@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredWidthIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -28,17 +29,14 @@ import org.w3c.dom.HTMLAnchorElement
 
 @Composable
 fun AboutMe(
-    isBlackTheme: Boolean,
     clientWidth: Int,
     themeColors: ThemeColors,
-    uriHandler: UriHandler,
     modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color.Transparent)
-            .padding(horizontal = (clientWidth/5).dp),
+            .background(Color.Transparent),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -60,6 +58,7 @@ fun AboutMe(
         )
         Spacer(Modifier.height(40.dp))
         Text(
+            modifier = Modifier.requiredWidthIn(max = (clientWidth/2).dp),
             text = "Hi there! I'm [Your Name], a data scientist specializing in data analytics, predictive modeling, natural language processing, machine learning, and AI chatbots. With a passion for unraveling insights from complex datasets, I'm dedicated to helping businesses make informed decisions and stay ahead in today's data-driven world.\n" +
                     "\n" +
                     "I bring a blend of technical expertise, hands-on experience, and a commitment to clear communication to every project. Whether it's uncovering hidden patterns, predicting future trends, or automating processes with AI, I'm here to help you harness the full potential of your data.\n" +
