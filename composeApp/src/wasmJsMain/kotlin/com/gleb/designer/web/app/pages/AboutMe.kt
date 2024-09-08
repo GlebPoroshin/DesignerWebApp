@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gleb.designer.web.app.components.TextButton
+import com.gleb.designer.web.app.downloadResume
 import com.gleb.designer.web.app.theme.ThemeColors
 import kotlinx.browser.document
 import org.w3c.dom.HTMLAnchorElement
@@ -84,13 +85,4 @@ fun AboutMe(
             }
         )
     }
-}
-
-fun downloadResume(fileName: String) {
-    val link = document.createElement("a") as HTMLAnchorElement
-    link.href = fileName
-    link.download = fileName
-    document.body?.appendChild(link)
-    link.click()
-    document.body?.removeChild(link)
 }

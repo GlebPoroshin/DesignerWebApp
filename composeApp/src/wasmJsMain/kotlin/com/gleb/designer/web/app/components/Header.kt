@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,16 +20,12 @@ import com.gleb.designer.web.app.theme.ThemeColors
 import designerwebsite.composeapp.generated.resources.Res
 import designerwebsite.composeapp.generated.resources.theme_button_light
 import designerwebsite.composeapp.generated.resources.theme_button_night
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun Header(
     contentsNamesList: List<String>,
-    listState: LazyListState,
-    scope: CoroutineScope,
-    clientHeight: Int,
+    onPageChange: (Int) -> Unit,
     isBlackTheme: Boolean,
     onThemeChange: () -> Unit,
     currentPage: Int,
@@ -58,11 +53,7 @@ fun Header(
                     fontWeight = FontWeight(500),
                     color = if (index == currentPage) themeColors.blueColor else themeColors.onMainColor
                 ),
-                modifier = Modifier.clickable {
-                    scope.launch {
-                        listState.animateScrollToItem(index, clientHeight)
-                    }
-                }
+                modifier = Modifier.clickable { onPageChange(index) }
             )
             if (index != contentsNamesList.lastIndex) Spacer(Modifier.width(48.dp))
         }

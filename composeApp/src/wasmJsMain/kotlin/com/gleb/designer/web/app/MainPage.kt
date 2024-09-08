@@ -18,10 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import com.gleb.designer.web.app.components.Header
+import com.gleb.designer.web.app.components.SpacerBetweenPages
 import com.gleb.designer.web.app.pages.AboutMe
 import com.gleb.designer.web.app.pages.HomePage
 import com.gleb.designer.web.app.theme.DarkThemeColors
 import com.gleb.designer.web.app.theme.LightThemeColors
+import kotlinx.coroutines.launch
 
 @Composable
 fun MainPage(
@@ -37,7 +39,7 @@ fun MainPage(
     val uriHandler = LocalUriHandler.current
 
     val contentsNamesList = listOf(
-        "Home", "About", "Projects", "Skills", "Resume"
+        "Home", "About", "Skills", "Projects", "Contacts"
     )
     val currentPage = listState.firstVisibleItemIndex
 
@@ -47,14 +49,16 @@ fun MainPage(
             modifier = Modifier
                 .fillMaxSize()
                 .background(themeColors.mainColor)
-                .padding(horizontal = 120.dp, vertical = 48.dp)
+                .padding(start = 120.dp, end = 120.dp, top = 48.dp),
         ) {
             item {
                 Header(
                     contentsNamesList = contentsNamesList,
-                    listState = listState,
-                    scope = scope,
-                    clientHeight = clientHeight,
+                    onPageChange = { index ->
+                        scope.launch {
+                            listState.scrollToItem(index)
+                        }
+                    },
                     isBlackTheme = isBlackTheme,
                     onThemeChange = { isBlackTheme = !isBlackTheme },
                     currentPage = currentPage,
@@ -68,13 +72,25 @@ fun MainPage(
                 )
             }
             item {
-                Spacer(Modifier.height(80.dp))
+                SpacerBetweenPages()
                 AboutMe(
                     isBlackTheme = isBlackTheme,
                     themeColors = themeColors,
                     uriHandler = uriHandler,
                     clientWidth = clientWidth
                 )
+                SpacerBetweenPages()
+            }
+            item {
+                SpacerBetweenPages()
+                AboutMe(
+                    modifier = Modifier.fillMaxSize(),
+                    isBlackTheme = isBlackTheme,
+                    themeColors = themeColors,
+                    uriHandler = uriHandler,
+                    clientWidth = clientWidth
+                )
+                SpacerBetweenPages()
             }
         }
     }
