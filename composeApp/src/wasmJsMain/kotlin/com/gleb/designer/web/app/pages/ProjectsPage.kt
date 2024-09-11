@@ -40,17 +40,17 @@ fun ProjectsPage(
     themeColors: ThemeColors,
     modifier: Modifier = Modifier
 ) {
-    val tags = listOf(
-        "Adobe",
-        "Figma",
-        "3D",
+    val tags = mapOf(
+        "Adobe" to 3,
+        "Figma" to 4,
+        "3D" to 4,
     )
 
     var selectedTag: String by remember { mutableStateOf("Adobe") }
     var filteredProjects: List<ProjectModel> by remember {
         mutableStateOf(projectsList.filter { it.fullTag.contains(selectedTag) })
     }
-    var projectsCount: Int by remember { mutableStateOf(3) }
+    var projectsCount: Int by remember { mutableStateOf(tags[selectedTag] ?: 3) }
 
     Column {
         Column(
@@ -82,7 +82,7 @@ fun ProjectsPage(
                     alignment = Alignment.CenterHorizontally
                 )
             ) {
-                tags.forEach { tag ->
+                tags.keys.forEach { tag ->
                     SecondaryTextButton(
                         modifier = Modifier.width(140.dp),
                         text = tag,
@@ -91,7 +91,7 @@ fun ProjectsPage(
                         shape = RoundedCornerShape(50.dp),
                         onClick = {
                             selectedTag = tag
-                            projectsCount = 3
+                            projectsCount = tags[selectedTag] ?: 3
                         }
                     )
                 }
@@ -107,23 +107,24 @@ fun ProjectsPage(
                 filteredProjects.take(projectsCount).forEach { project ->
                     Image(
                         painter = painterResource(project.image),
+                        alignment = Alignment.Center,
                         contentDescription = null,
                         contentScale = ContentScale.FillWidth,
-                        modifier = Modifier.widthIn(max = 326.dp).weight(1f)
+                        modifier = Modifier.widthIn(max = project.maxWidth).weight(1f)
                     )
                 }
             }
             Spacer(modifier = Modifier.height(108.dp))
 
             SecondaryTextButton(
-                text = if (projectsCount <= 3) "View All" else "Hide all",
+                text = if (projectsCount <= (tags[selectedTag] ?: 3)) "View All" else "Hide all",
                 modifier = Modifier.fillMaxWidth(0.2f),
                 themeColors = themeColors,
                 isSelected = false,
                 shape = RoundedCornerShape(50.dp),
                 onClick = {
-                    projectsCount = if (projectsCount <= 3) filteredProjects.size
-                    else 3
+                    projectsCount = if (projectsCount <= (tags[selectedTag] ?: 3)) filteredProjects.size
+                    else tags[selectedTag] ?: 3
                 }
             )
         }
