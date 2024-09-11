@@ -16,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
+import com.arkivanov.decompose.extensions.compose.stack.animation.fade
 import com.gleb.designer.web.app.components.Header
 import com.gleb.designer.web.app.components.SpacerBetweenPages
 import com.gleb.designer.web.app.pages.AboutMe
@@ -35,7 +36,8 @@ fun App(
 ) {
     var isEnglish by remember { mutableStateOf(true) }
     var strings by remember { mutableStateOf(if (isEnglish) engStrings else rusStrings) }
-    var isBlackTheme by remember { mutableStateOf(isSystemThemeDark) }
+//    var isBlackTheme by remember { mutableStateOf(isSystemThemeDark) }
+    var isBlackTheme by remember { mutableStateOf(false) }
     var themeColors by remember {
         mutableStateOf(
             if (isSystemThemeDark) DarkThemeColors else LightThemeColors

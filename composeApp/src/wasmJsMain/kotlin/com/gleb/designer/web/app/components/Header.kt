@@ -69,13 +69,13 @@ fun Header(
             ),
             modifier = Modifier.clickable { onLanguageChange() }
         )
-        Spacer(Modifier.weight(0.1f))
-        Image(
-            painter = painterResource(if (isBlackTheme) Res.drawable.theme_button_light else Res.drawable.theme_button_night),
-            contentDescription = null,
-            modifier = Modifier
-                .requiredSize(32.dp)
-                .clickable { onThemeChange() }
-        )
+//        Spacer(Modifier.weight(0.1f))
+//        Image(
+//            painter = painterResource(if (isBlackTheme) Res.drawable.theme_button_light else Res.drawable.theme_button_night),
+//            contentDescription = null,
+//            modifier = Modifier
+//                .requiredSize(32.dp)
+//                .clickable { onThemeChange() }
+//        )
     }
 }

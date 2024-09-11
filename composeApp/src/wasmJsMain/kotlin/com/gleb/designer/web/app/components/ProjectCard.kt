@@ -41,7 +41,7 @@ fun ProjectCard(
         Image(
             painter = image,
             contentDescription = null,
-            contentScale = ContentScale.FillWidth,
+            contentScale = ContentScale.FillBounds,
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(32.dp))
