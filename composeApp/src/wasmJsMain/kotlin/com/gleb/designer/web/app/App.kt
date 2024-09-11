@@ -16,7 +16,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
-import com.arkivanov.decompose.extensions.compose.stack.animation.fade
 import com.gleb.designer.web.app.components.Header
 import com.gleb.designer.web.app.components.SpacerBetweenPages
 import com.gleb.designer.web.app.pages.AboutMe

@@ -27,20 +27,8 @@ kotlin {
         binaries.executable()
     }
 
-    js {
-        browser {
-        }
-        binaries.executable()
-    }
-
-
-    tasks.withType<KotlinJsCompile>().configureEach {
-        kotlinOptions {
-            target = "es2015"
-        }
-    }
-
     sourceSets {
+
 
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -55,8 +43,9 @@ kotlin {
             implementation(libs.decompose.extensions.compose)
         }
 
-        val jsMain by getting {
+        val wasmJsMain by getting {
             dependencies {
+                api("io.github.qdsfdhvh:image-loader:1.8.3")
             }
         }
     }

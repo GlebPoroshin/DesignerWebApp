@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import com.gleb.designer.web.app.components.TextButton
 import com.gleb.designer.web.app.theme.Strings
 import com.gleb.designer.web.app.theme.ThemeColors
+import com.seiko.imageloader.rememberImagePainter
 import designerwebsite.composeapp.generated.resources.Res
 import designerwebsite.composeapp.generated.resources.emoji
 import designerwebsite.composeapp.generated.resources.home_page_background
@@ -55,7 +56,7 @@ fun HomePage(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(Res.drawable.emoji),
+                painter = rememberImagePainter("https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/emoji.png"),
                 contentDescription = null,
                 modifier = Modifier.size(240.dp).clip(CircleShape)
             )
