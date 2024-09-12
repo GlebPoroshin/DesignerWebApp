@@ -92,7 +92,7 @@ val projectsList = listOf(
         fullTag = "Figma #1"
     ),
     ProjectModel(
-        maxWidth = 465.dp,
+        maxWidth = 470.dp,
         imageUrl = "https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_2.png",
         fullTag = "Figma #2"
     ),
@@ -107,24 +107,24 @@ val projectsList = listOf(
         fullTag = "Figma #4"
     ),
     ProjectModel(
-        maxWidth = 1028.dp,
+        maxWidth = 465.dp,
         imageUrl = "https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_5.png",
         fullTag = "Figma #5"
     ),
     ProjectModel(
-        maxWidth = 1028.dp,
+        maxWidth = 465.dp,
         imageUrl = "https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_6.png",
         fullTag = "Figma #6"
     ),
     ProjectModel(
-        maxWidth = 1028.dp,
+        maxWidth = 465.dp,
         imageUrl = "https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_7.png",
         fullTag = "Figma #7"
     ),
     ProjectModel(
-        maxWidth = 1028.dp,
+        maxWidth = 465.dp,
         imageUrl = "https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_8.png",
-        fullTag = "Figma #7"
+        fullTag = "Figma #8"
     ),
 
     ProjectModel(
