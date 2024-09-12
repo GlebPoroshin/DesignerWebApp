@@ -22,6 +22,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gleb.designer.web.app.components.TextButton
@@ -83,7 +84,8 @@ fun HomePage(
                 style = TextStyle(
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Medium,
-                    color = themeColors.thirdColor
+                    color = themeColors.thirdColor,
+                    textAlign = TextAlign.Center
                 )
             )
             Spacer(Modifier.height(40.dp))

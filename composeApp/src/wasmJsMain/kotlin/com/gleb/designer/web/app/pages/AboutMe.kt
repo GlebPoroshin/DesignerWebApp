@@ -58,7 +58,7 @@ fun AboutMe(
         )
         Spacer(Modifier.height(40.dp))
         Text(
-            modifier = Modifier.requiredWidthIn(max = (clientWidth/2).dp),
+            modifier = Modifier.requiredWidthIn(max = (clientWidth / 2).dp),
             text = strings.aboutMe,
             style = TextStyle(
                 fontSize = 17.sp,

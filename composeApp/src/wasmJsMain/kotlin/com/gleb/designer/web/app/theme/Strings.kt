@@ -24,15 +24,13 @@ val engStrings = Strings(
     contactsTab = "Contacts",
     name = "Lidia Suzdaltseva",
     profession = "Graphic Designer",
-    shortDescription = "As a passionate data scientist, with expertise in machine learning, AI, and data analytics, I thrive on the challenges of exploring complex data landscapes and uncovering meaningful patterns that drive innovation",
+    shortDescription = "Hi, I’m Lidia, a  passionate web and graphic designer with a love for bringing ideas to life through creative visuals. For me - good design is a language, not a style",
     contactMe = "Contact Me",
     aboutMeTitle = "About Me",
     getToKnowMe = "Get to know me",
-    aboutMe = "Hi there! I'm [Your Name], a data scientist specializing in data analytics, predictive modeling, natural language processing, machine learning, and AI chatbots. With a passion for unraveling insights from complex datasets, I'm dedicated to helping businesses make informed decisions and stay ahead in today's data-driven world.\n" +
+    aboutMe = "Let’s get acquainted! I am a graphic and web designer with experience in various projects. My passion for design started in art school, and now I am pursuing a bachelor's degree in graphic design at GUP. Additionally, I have completed courses in UI/UX design\n" +
             "\n" +
-            "I bring a blend of technical expertise, hands-on experience, and a commitment to clear communication to every project. Whether it's uncovering hidden patterns, predicting future trends, or automating processes with AI, I'm here to help you harness the full potential of your data.\n" +
-            "\n" +
-            "Let's work together to transform your data into actionable insights that drive real results. Get in touch, and let's start unlocking the power of your data today!",
+            "As a freelancer, I create logos, banners, infographics, and work on print layouts. I also have experience as a junior designer at L’studio, where I focused on photo retouching and typography",
     downLoadResume = "Download Resume"
 )
 
@@ -44,14 +42,12 @@ val rusStrings = Strings(
     contactsTab = "Контакты",
     name = "Лидия Суздальцева",
     profession = "Графический дизайнер",
-    shortDescription = "Будучи увлечённым специалистом по данным с экспертизой в области машинного обучения, искусственного интеллекта и анализа данных, я наслаждаюсь решением задач, связанных с исследованием сложных массивов данных и выявлением значимых паттернов, которые способствуют инновациям.",
-    contactMe = "Связаться со мной",
+    shortDescription = "Привет, я Лида, графический и веб-дизайнер с горящими глазами! С энтузиазмом воплощаю в жизнь креативный визуал. Для меня хороший дизайн — это язык, а не стиль",
+    contactMe = "Написать мне",
     aboutMeTitle = "Обо мне",
-    getToKnowMe = "Познакомьтесь со мной",
-    aboutMe = "Привет! Я [Ваше Имя], специалист по данным, специализирующийся на аналитике данных, предсказательном моделировании, обработке естественного языка, машинном обучении и AI-чатботах. Я увлечён нахождением инсайтов в сложных наборах данных и помогаю бизнесу принимать информированные решения и оставаться впереди в современном мире, основанном на данных.\n" +
+    getToKnowMe = "Давайте знакомиться",
+    aboutMe = "Давай познакомимся! Я графический и веб-дизайнер с опытом работы в различных проектах. Моя любовь к дизайну началась с учебы в художественной школе, а сейчас я получаю степень бакалавра по графическому дизайну в ГУПе. Дополнительно я прошла курсы по UI/UX дизайну\n" +
             "\n" +
-            "Я предлагаю сочетание технических знаний, практического опыта и приверженности чёткому общению в каждом проекте. Будь то выявление скрытых паттернов, предсказание будущих трендов или автоматизация процессов с помощью ИИ, я здесь, чтобы помочь вам раскрыть весь потенциал ваших данных.\n" +
-            "\n" +
-            "Давайте работать вместе, чтобы преобразовать ваши данные в действенные инсайты, которые приносят реальные результаты. Свяжитесь со мной, и начнем раскрывать силу ваших данных уже сегодня!",
+            "Работая фрилансером, я создаю логотипы, баннеры, инфографику, работаю с макетами для печати. Кроме того у меня есть опыт работы младшим дизайнером в L’studio, где занималась ретушью фото и типографикой",
     downLoadResume = "Скачать резюме"
 )
