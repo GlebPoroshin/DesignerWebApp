@@ -21,6 +21,7 @@ import com.gleb.designer.web.app.components.SpacerBetweenPages
 import com.gleb.designer.web.app.pages.AboutMe
 import com.gleb.designer.web.app.pages.HomePage
 import com.gleb.designer.web.app.pages.ProjectsPage
+import com.gleb.designer.web.app.pages.SkillsPage
 import com.gleb.designer.web.app.theme.DarkThemeColors
 import com.gleb.designer.web.app.theme.LightThemeColors
 import com.gleb.designer.web.app.theme.engStrings
@@ -89,7 +90,6 @@ fun App(
                 uriHandler = uriHandler
             )
             SpacerBetweenPages()
-
         }
         item(key = "AboutMe") {
             AboutMe(
@@ -99,9 +99,17 @@ fun App(
             )
             SpacerBetweenPages()
         }
-//            item { }
+        item(key = "Skills") {
+            SkillsPage(
+                strings = strings,
+                themeColors = themeColors,
+                clientWidth = clientWidth
+            )
+            SpacerBetweenPages()
+        }
         item(key = "Projects") {
             ProjectsPage(
+                strings = strings,
                 themeColors = themeColors
             )
             SpacerBetweenPages()

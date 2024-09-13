@@ -27,13 +27,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gleb.designer.web.app.components.ProjectModel
 import com.gleb.designer.web.app.components.SecondaryTextButton
+import com.gleb.designer.web.app.components.projectsList
+import com.gleb.designer.web.app.theme.Strings
 import com.gleb.designer.web.app.theme.ThemeColors
 import com.seiko.imageloader.rememberImagePainter
-import org.jetbrains.compose.resources.painterResource
+import kotlin.math.min
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ProjectsPage(
+    strings: Strings,
     themeColors: ThemeColors,
     modifier: Modifier = Modifier
 ) {
@@ -55,7 +58,7 @@ fun ProjectsPage(
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Projects",
+            text = strings.projects,
             style = TextStyle(
                 fontSize = 48.sp,
                 fontWeight = FontWeight.ExtraBold,
@@ -63,7 +66,7 @@ fun ProjectsPage(
             ),
         )
         Text(
-            text = "Some of my Work",
+            text = strings.myWorks,
             style = TextStyle(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -95,7 +98,7 @@ fun ProjectsPage(
         Spacer(Modifier.height(104.dp))
         FlowRow(
             modifier = Modifier.fillMaxWidth(),
-            maxItemsInEachRow = 3,
+            maxItemsInEachRow = min(projectsCount, 3),
             horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally),
             verticalArrangement = Arrangement.spacedBy(80.dp, Alignment.CenterVertically)
         ) {
@@ -113,7 +116,7 @@ fun ProjectsPage(
         Spacer(modifier = Modifier.height(108.dp))
 
         SecondaryTextButton(
-            text = if (projectsCount <= (tags[selectedTag] ?: 3)) "View All" else "Hide all",
+            text = if (projectsCount <= (tags[selectedTag] ?: 3)) strings.view else strings.hide,
             modifier = Modifier.fillMaxWidth(0.2f),
             themeColors = themeColors,
             isSelected = false,

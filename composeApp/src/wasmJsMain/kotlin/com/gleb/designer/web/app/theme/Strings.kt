@@ -13,7 +13,13 @@ data class Strings(
     val aboutMeTitle: String,
     val getToKnowMe: String,
     val aboutMe: String,
-    val downLoadResume: String
+    val downLoadResume: String,
+    val mySkills: String,
+    val software: String,
+    val projects: String,
+    val myWorks: String,
+    val view: String,
+    val hide: String
 )
 
 val engStrings = Strings(
@@ -31,7 +37,13 @@ val engStrings = Strings(
     aboutMe = "Let’s get acquainted! I am a graphic and web designer with experience in various projects. My passion for design started in art school, and now I am pursuing a bachelor's degree in graphic design at GUP. Additionally, I have completed courses in UI/UX design\n" +
             "\n" +
             "As a freelancer, I create logos, banners, infographics, and work on print layouts. I also have experience as a junior designer at L’studio, where I focused on photo retouching and typography",
-    downLoadResume = "Download Resume"
+    downLoadResume = "Download Resume",
+    mySkills = "My skills",
+    software = "The programs I've worked with",
+    projects = "Projects",
+    myWorks = "Some of my Work",
+    view = "View all",
+    hide = "Hide all"
 )
 
 val rusStrings = Strings(
@@ -49,5 +61,11 @@ val rusStrings = Strings(
     aboutMe = "Давай познакомимся! Я графический и веб-дизайнер с опытом работы в различных проектах. Моя любовь к дизайну началась с учебы в художественной школе, а сейчас я получаю степень бакалавра по графическому дизайну в ГУПе. Дополнительно я прошла курсы по UI/UX дизайну\n" +
             "\n" +
             "Работая фрилансером, я создаю логотипы, баннеры, инфографику, работаю с макетами для печати. Кроме того у меня есть опыт работы младшим дизайнером в L’studio, где занималась ретушью фото и типографикой",
-    downLoadResume = "Скачать резюме"
+    downLoadResume = "Скачать резюме",
+    mySkills = "Мои навыки",
+    software = "Программы с которыми я работала",
+    projects = "Проекты",
+    myWorks = "Некоторые мои работы",
+    view = "Показать все",
+    hide = "Скрыть"
 )
