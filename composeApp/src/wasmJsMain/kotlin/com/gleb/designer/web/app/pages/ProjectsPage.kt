@@ -98,8 +98,8 @@ fun ProjectsPage(
         Spacer(Modifier.height(104.dp))
         FlowRow(
             modifier = Modifier.fillMaxWidth(),
-            maxItemsInEachRow = min(projectsCount, 3),
-            horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally),
+            maxItemsInEachRow = tags[selectedTag] ?: 3,
+            horizontalArrangement = Arrangement.SpaceEvenly,
             verticalArrangement = Arrangement.spacedBy(80.dp, Alignment.CenterVertically)
         ) {
             filteredProjects = projectsList.filter { it.fullTag.contains(selectedTag) }
@@ -109,12 +109,11 @@ fun ProjectsPage(
                     alignment = Alignment.Center,
                     contentDescription = null,
                     contentScale = ContentScale.FillWidth,
-                    modifier = Modifier.widthIn(max = project.maxWidth).weight(1f)
+                    modifier = Modifier.widthIn(max = project.maxWidth)
                 )
             }
         }
-        Spacer(modifier = Modifier.height(108.dp))
-
+        Spacer(modifier = Modifier.height(48.dp))
         SecondaryTextButton(
             text = if (projectsCount <= (tags[selectedTag] ?: 3)) strings.view else strings.hide,
             modifier = Modifier.fillMaxWidth(0.2f),

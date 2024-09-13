@@ -121,12 +121,12 @@ val projectsList = listOf(
         fullTag = "3D #4"
     ),
     ProjectModel(
-        maxWidth = 952.dp,
+        maxWidth = 944.dp,
         imageUrl = "https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_5.png",
         fullTag = "3D #5"
     ),
     ProjectModel(
-        maxWidth = 952.dp,
+        maxWidth = 944.dp,
         imageUrl = "https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_6.png",
         fullTag = "3D #6"
     ),
