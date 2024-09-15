@@ -19,7 +19,10 @@ data class Strings(
     val projects: String,
     val myWorks: String,
     val view: String,
-    val hide: String
+    val hide: String,
+    val letsWork: String,
+    val copy: String,
+    val copied: String,
 )
 
 val engStrings = Strings(
@@ -43,7 +46,10 @@ val engStrings = Strings(
     projects = "Projects",
     myWorks = "Some of my Work",
     view = "View all",
-    hide = "Hide all"
+    hide = "Hide all",
+    letsWork = "Let’s Work Together - ",
+    copy = "Copy to clipboard ",
+    copied = "Copied"
 )
 
 val rusStrings = Strings(
@@ -67,5 +73,8 @@ val rusStrings = Strings(
     projects = "Проекты",
     myWorks = "Некоторые мои работы",
     view = "Показать все",
-    hide = "Скрыть"
+    hide = "Скрыть",
+    letsWork = "Давайте Поработаем Вместе - ",
+    copy = "Скопировать в буфер обмена ",
+    copied = "Скопировано"
 )

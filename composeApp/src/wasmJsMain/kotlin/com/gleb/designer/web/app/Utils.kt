@@ -1,6 +1,7 @@
 package com.gleb.designer.web.app
 
 import kotlinx.browser.document
+import kotlinx.browser.window
 import org.w3c.dom.HTMLAnchorElement
 
 fun downloadResume(fileName: String) {
@@ -10,4 +11,8 @@ fun downloadResume(fileName: String) {
     document.body?.appendChild(link)
     link.click()
     document.body?.removeChild(link)
+}
+
+fun copyToClipboard(text: String) {
+    window.navigator.clipboard.writeText(text)
 }

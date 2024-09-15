@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -69,13 +71,5 @@ fun Header(
             ),
             modifier = Modifier.clickable { onLanguageChange() }
         )
-//        Spacer(Modifier.weight(0.1f))
-//        Image(
-//            painter = painterResource(if (isBlackTheme) Res.drawable.theme_button_light else Res.drawable.theme_button_night),
-//            contentDescription = null,
-//            modifier = Modifier
-//                .requiredSize(32.dp)
-//                .clickable { onThemeChange() }
-//        )
     }
 }
