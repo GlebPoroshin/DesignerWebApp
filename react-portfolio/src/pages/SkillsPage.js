@@ -79,12 +79,12 @@ const SkillsPage = ({ strings }) => {
   ];
 
   const softwareTools = [
-    { name: 'Figma', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/figma_1.png' },
-    { name: 'Adobe Photoshop', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_1.png' },
-    { name: 'Adobe Illustrator', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_2.png' },
-    { name: 'Adobe InDesign', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_3.png' },
-    { name: 'Blender', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_1.png' },
-    { name: 'After Effects', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_4.png' },
+    { name: 'Figma', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/free-icon-figma-5968705.png' },
+    { name: 'Adobe Photoshop', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/photoshop_5968520.png' },
+    { name: 'Adobe Illustrator', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/illustrator_5968472.png' },
+    { name: 'Adobe InDesign', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/indesign.png' },
+    { name: 'After Effects', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/after-effects_5968428.png' },
+    { name: 'Blender', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/blender.png' },
   ];
 
   return (
