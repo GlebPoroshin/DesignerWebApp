@@ -40,6 +40,7 @@ const ProjectsGrid = styled.div`
   grid-template-columns: repeat(${props => props.columns}, 1fr);
   gap: 2rem;
   margin-bottom: 3rem;
+  justify-items: center;
   
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
@@ -80,24 +81,23 @@ const ProjectsPage = ({ strings }) => {
     { id: 1, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_1.png' },
     { id: 2, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_2.png' },
     { id: 3, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_3.png' },
-    { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_4.png' },
-    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_5.png' },
-    { id: 6, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_6.png' },
-    { id: 7, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_7.png' },
-    { id: 8, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_8.png' },
-    { id: 9, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_9.png' },
-    { id: 12, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_12.png' },
     { id: 13, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_13.png' },
     { id: 14, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_14.png' },
     { id: 15, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_15.png' },
-    ];
+    { id: 7, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_7.png' },
+    { id: 9, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_9.png' },
+    { id: 8, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_8.png' },
+    { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_4.png' },
+    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_5.png' },
+    { id: 6, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_6.png' },
+    { id: 12, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_12.png' },
+  ];
   
   const threeDProjects = [
     { id: 1, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_1.png' },
     { id: 2, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_2.png' },
     { id: 3, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_3.png' },
     { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_4.png' },
-    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_5.png' },
   ];
   
   const projectsByTab = {
@@ -111,19 +111,14 @@ const ProjectsPage = ({ strings }) => {
     const count = isExpanded ? projects.length : tabConfig[activeTab].initialCount;
     
     if (isExpanded && projects.length > tabConfig[activeTab].initialCount) {
-      // Если переключаемся в режим "Показать все" и есть дополнительные проекты
       setIsLoading(true);
-      
-      // Сначала показываем только первые проекты
       setDisplayedProjects(projects.slice(0, tabConfig[activeTab].initialCount));
       
-      // Имитируем загрузку изображений
       setTimeout(() => {
         setDisplayedProjects(projects.slice(0, count));
         setIsLoading(false);
       }, 300);
     } else {
-      // В других случаях просто обновляем список проектов
       setDisplayedProjects(projects.slice(0, count));
     }
   }, [activeTab, isExpanded]);
@@ -135,6 +130,18 @@ const ProjectsPage = ({ strings }) => {
   
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
+  };
+  
+  const shouldLastItemSpanFullWidth = () => {
+    const columns = tabConfig[activeTab].columns;
+    return displayedProjects.length % columns !== 0 && displayedProjects.length > columns;
+  };
+  
+  const getProjectCardClass = (index) => {
+    if (shouldLastItemSpanFullWidth() && index === displayedProjects.length - 1) {
+      return "full-width-last-item";
+    }
+    return "";
   };
   
   return (
@@ -156,11 +163,14 @@ const ProjectsPage = ({ strings }) => {
       </TabsContainer>
       
       <ProjectsGrid columns={tabConfig[activeTab].columns}>
-        {displayedProjects.map(project => (
+        {displayedProjects.map((project, index) => (
           <ProjectCard 
             key={project.id} 
             project={project}
-            forceLoad={isLoading} 
+            forceLoad={isLoading}
+            className={getProjectCardClass(index)}
+            isLastItem={shouldLastItemSpanFullWidth() && index === displayedProjects.length - 1}
+            gridColumns={tabConfig[activeTab].columns}
           />
         ))}
       </ProjectsGrid>
