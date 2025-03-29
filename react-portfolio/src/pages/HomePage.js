@@ -97,9 +97,6 @@ const HomePage = ({ strings, uriHandler }) => {
           <Button primary onClick={handleContactClick}>
             {strings.contactMe}
           </Button>
-          <Button onClick={() => uriHandler.openUri('/CV.pdf')}>
-            {strings.downLoadResume}
-          </Button>
         </ButtonContainer>
       </ContentContainer>
       <ImageContainer>
