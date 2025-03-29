@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../components/SectionTitle';
 import SkillBar from '../components/SkillBar';
+import ImageWithShimmer from '../components/ImageWithShimmer';
 
 const SkillsContainer = styled.section`
   padding: 5rem 0;
@@ -59,7 +60,7 @@ const SoftwareItem = styled.div`
   text-align: center;
 `;
 
-const SoftwareIcon = styled.img`
+const SoftwareIcon = styled(ImageWithShimmer)`
   width: 64px;
   height: 64px;
   margin-bottom: 1rem;
@@ -74,7 +75,7 @@ const SkillsPage = ({ strings }) => {
   const designSkills = [
     { name: 'UI/UX Design', percentage: 65 },
     { name: 'Graphic Design', percentage: 85 },
-    { name: 'Typography', percentage: 85 },
+    { name: 'Typography', percentage: 60 },
     { name: 'Logo and Branding Design', percentage: 75 },
   ];
 
@@ -112,7 +113,13 @@ const SkillsPage = ({ strings }) => {
           <SoftwareGrid>
             {softwareTools.map((tool, index) => (
               <SoftwareItem key={index}>
-                <SoftwareIcon src={tool.icon} alt={tool.name} />
+                <SoftwareIcon 
+                  src={tool.icon} 
+                  alt={tool.name} 
+                  width="64px" 
+                  height="64px"
+                  objectFit="contain"
+                />
                 <SoftwareName>{tool.name}</SoftwareName>
               </SoftwareItem>
             ))}
