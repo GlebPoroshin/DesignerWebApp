@@ -79,12 +79,12 @@ const SkillsPage = ({ strings }) => {
   ];
 
   const softwareTools = [
-    { name: 'Figma', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_1.png' },
-    { name: 'Adobe Photoshop', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_1.png' },
-    { name: 'Adobe Illustrator', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_2.png' },
-    { name: 'Adobe InDesign', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_3.png' },
-    { name: 'Blender', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_1.png' },
-    { name: 'After Effects', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_4.png' },
+    { name: 'Figma', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/figma_1.png' },
+    { name: 'Adobe Photoshop', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_1.png' },
+    { name: 'Adobe Illustrator', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_2.png' },
+    { name: 'Adobe InDesign', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_3.png' },
+    { name: 'Blender', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_1.png' },
+    { name: 'After Effects', icon: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_4.png' },
   ];
 
   return (

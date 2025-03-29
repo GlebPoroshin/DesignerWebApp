@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
@@ -59,6 +59,8 @@ const ButtonContainer = styled.div`
 const ProjectsPage = ({ strings }) => {
   const [activeTab, setActiveTab] = useState('Adobe');
   const [isExpanded, setIsExpanded] = useState(false);
+  const [displayedProjects, setDisplayedProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   
   const tabConfig = {
     'Adobe': { initialCount: 3, columns: 3 },
@@ -67,44 +69,35 @@ const ProjectsPage = ({ strings }) => {
   };
   
   const figmaProjects = [
-    { id: 1, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_1.png' },
-    { id: 2, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_2.png' },
-    { id: 3, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_3.png' },
-    { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_4.png' },
-    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_5.png' },
-    { id: 6, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_6.png' },
-    { id: 7, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_7.png' },
-    { id: 8, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/figma_8.png' }
+    { id: 1, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/figma_1.png' },
+    { id: 2, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/figma_2.png' },
+    { id: 3, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/figma_3.png' },
+    { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/figma_4.png' },
+    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/figma_5.png' },
   ];
   
   const adobeProjects = [
-    { id: 1, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_1.png' },
-    { id: 2, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_2.png' },
-    { id: 3, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_3.png' },
-    { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_4.png' },
-    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_5.png' },
-    { id: 6, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_6.png' },
-    { id: 7, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_7.png' },
-    { id: 8, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_8.png' },
-    { id: 9, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_9.png' },
-    { id: 10, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_10.png' },
-    { id: 11, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_11.png' },
-    { id: 12, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_12.png' },
-    { id: 13, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_13.png' },
-    { id: 14, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_14.png' },
-    { id: 15, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_15.png' },
-    { id: 16, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_16.png' },
-    { id: 17, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_17.png' },
-    { id: 18, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/adobe_18.png' }
-  ];
+    { id: 1, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_1.png' },
+    { id: 2, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_2.png' },
+    { id: 3, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_3.png' },
+    { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_4.png' },
+    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_5.png' },
+    { id: 6, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_6.png' },
+    { id: 7, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_7.png' },
+    { id: 8, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_8.png' },
+    { id: 9, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_9.png' },
+    { id: 12, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_12.png' },
+    { id: 13, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_13.png' },
+    { id: 14, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_14.png' },
+    { id: 15, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/adobe_15.png' },
+    ];
   
   const threeDProjects = [
-    { id: 1, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_1.png' },
-    { id: 2, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_2.png' },
-    { id: 3, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_3.png' },
-    { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_4.png' },
-    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_5.png' },
-    { id: 6, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/3d_6.png' }
+    { id: 1, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_1.png' },
+    { id: 2, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_2.png' },
+    { id: 3, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_3.png' },
+    { id: 4, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_4.png' },
+    { id: 5, imageUrl: 'https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/3d_5.png' },
   ];
   
   const projectsByTab = {
@@ -113,11 +106,27 @@ const ProjectsPage = ({ strings }) => {
     '3D': threeDProjects
   };
   
-  const getProjects = () => {
+  useEffect(() => {
     const projects = projectsByTab[activeTab] || [];
     const count = isExpanded ? projects.length : tabConfig[activeTab].initialCount;
-    return projects.slice(0, count);
-  };
+    
+    if (isExpanded && projects.length > tabConfig[activeTab].initialCount) {
+      // Если переключаемся в режим "Показать все" и есть дополнительные проекты
+      setIsLoading(true);
+      
+      // Сначала показываем только первые проекты
+      setDisplayedProjects(projects.slice(0, tabConfig[activeTab].initialCount));
+      
+      // Имитируем загрузку изображений
+      setTimeout(() => {
+        setDisplayedProjects(projects.slice(0, count));
+        setIsLoading(false);
+      }, 300);
+    } else {
+      // В других случаях просто обновляем список проектов
+      setDisplayedProjects(projects.slice(0, count));
+    }
+  }, [activeTab, isExpanded]);
   
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -147,13 +156,17 @@ const ProjectsPage = ({ strings }) => {
       </TabsContainer>
       
       <ProjectsGrid columns={tabConfig[activeTab].columns}>
-        {getProjects().map(project => (
-          <ProjectCard key={project.id} project={project} />
+        {displayedProjects.map(project => (
+          <ProjectCard 
+            key={project.id} 
+            project={project}
+            forceLoad={isLoading} 
+          />
         ))}
       </ProjectsGrid>
       
       <ButtonContainer>
-        <Button onClick={toggleExpand}>
+        <Button onClick={toggleExpand} disabled={isLoading}>
           {isExpanded ? strings.hide : strings.view}
         </Button>
       </ButtonContainer>

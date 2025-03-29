@@ -104,7 +104,7 @@ const HomePage = ({ strings, uriHandler }) => {
       </ContentContainer>
       <ImageContainer>
         <ImageWithShimmer
-          src="https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/emoji.png"
+          src="https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/emoji.png"
           alt="Emoji Sticker"
           width="240px"
           height="240px"

@@ -75,7 +75,7 @@ const AboutPage = ({ strings, uriHandler }) => {
         </TextContent>
         <ImageContent>
           <ImageWithShimmer 
-            src="https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/main/composeApp/src/commonMain/composeResources/drawable/sticker.png"
+            src="https://raw.githubusercontent.com/GlebPoroshin/DesignerWebApp/react/composeApp/src/commonMain/composeResources/drawable/sticker.png"
             alt="Lidia Suzdaltseva"
             maxWidth="400px"
             borderRadius="10px"

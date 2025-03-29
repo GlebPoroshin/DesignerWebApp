@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ImageWithShimmer from './ImageWithShimmer';
 
@@ -13,10 +13,14 @@ const ProjectImage = styled.div`
   }
 `;
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, forceLoad }) => {
+  // Используем уникальный ключ для сброса состояния изображения
+  const imageKey = forceLoad ? `${project.id}-${Date.now()}` : project.id;
+  
   return (
     <ProjectImage>
       <ImageWithShimmer 
+        key={imageKey}
         src={project.imageUrl} 
         alt={project.title || 'Project image'} 
         borderRadius="4px"
